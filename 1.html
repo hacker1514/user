@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Clock</title>
+  <style>
+    body {
+      background-color: black;
+      color: white;
+      font-family: monospace;
+      font-size: 24px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+    }
+    .clock {
+      border: 2px solid blue;
+      padding: 20px;
+      text-align: center;
+    }
+    .label {
+      color: red;
+    }
+    .value {
+      color: green;
+    }
+    .border {
+      color: blue;
+    }
+  </style>
+</head>
+<body>
+  <div class="clock">
+    <div class="border">---------------------</div>
+    <div><span class="label">Time:</span>
+      <span class="value" id="hour">1hr</span><span class="border">:</span>
+      <span class="value" id="minute">0min</span><span class="border">:</span>
+      <span class="value" id="second">0sec</span>
+    </div>
+    <div class="border">---------------------</div>
+  </div>
+
+  <script>
+    let h = 1, m = 0, s = 0;
+    function updateClock() {
+      s++;
+      if (s > 59) {
+        s = 0;
+        m++;
+      }
+      if (m > 59) {
+        m = 0;
+        h++;
+      }
+      if (h > 12) {
+        h = 1;
+      }
+      document.getElementById('hour').textContent = h + 'hr';
+      document.getElementById('minute').textContent = m + 'min';
+      document.getElementById('second').textContent = s + 'sec';
+    }
+
+    setInterval(updateClock, 1000);
+  </script>
+</body>
+</html>
