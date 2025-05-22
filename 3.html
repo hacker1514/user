@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>BST Inorder Simulation</title>
+  <style>
+    body {
+      background-color: #000;
+      color: #0f0;
+      font-family: monospace;
+      height: 100vh;
+      margin: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    #terminal {
+      white-space: pre-wrap;
+      width: 90%;
+      max-width: 600px;
+    }
+    input {
+      background: transparent;
+      border: none;
+      color: #0f0;
+      font-family: monospace;
+      font-size: 1em;
+      outline: none;
+      width: auto;
+    }
+    #tryAgain {
+      margin-top: 20px;
+      display: none;
+      color: #0f0;
+      background: #111;
+      padding: 5px 15px;
+      border: 1px solid #0f0;
+      cursor: pointer;
+      font-family: monospace;
+    }
+  </style>
+</head>
+<body>
+
+<div id="terminal"></div>
+<button id="tryAgain" onclick="location.reload()">Try Again</button>
+
+<script>
+  const terminal = document.getElementById("terminal");
+  const tryAgainButton = document.getElementById("tryAgain");
+
+  class Node {
+    constructor(data) {
+      this.data = data;
+      this.left = null;
+      this.right = null;
+    }
+  }
+
+  function insert(root, data) {
+    if (!root) return new Node(data);
+    if (data < root.data) root.left = insert(root.left, data);
+    else if (data > root.data) root.right = insert(root.right, data);
+    return root;
+  }
+
+  function inorder(root, result = []) {
+    if (root) {
+      inorder(root.left, result);
+      result.push(root.data);
+      inorder(root.right, result);
+    }
+    return result;
+  }
+
+  let root = null;
+  let totalNodes = 0;
+  let currentNode = 1;
+  let state = "askCount";
+
+  const input = document.createElement("input");
+  terminal.appendChild(document.createTextNode("Enter the number of nodes: "));
+  terminal.appendChild(input);
+  input.focus();
+
+  input.addEventListener("keydown", function (e) {
+    if (e.key === "Enter") {
+      const value = input.value.trim();
+      terminal.removeChild(input);
+      terminal.appendChild(document.createTextNode(value + "\n"));
+
+      if (state === "askCount") {
+        totalNodes = parseInt(value);
+        if (isNaN(totalNodes) || totalNodes <= 0) {
+          terminal.appendChild(document.createTextNode("Invalid number. Please refresh.\n"));
+          return;
+        }
+        state = "askData";
+        askNextNode();
+      } else if (state === "askData") {
+        const data = parseInt(value);
+        if (isNaN(data)) {
+          terminal.appendChild(document.createTextNode("Invalid data. Please refresh.\n"));
+          return;
+        }
+        root = insert(root, data);
+        if (currentNode < totalNodes) {
+          currentNode++;
+          askNextNode();
+        } else {
+          const result = inorder(root).join(" ");
+          terminal.appendChild(document.createTextNode("Inorder Traversal: " + result + "\n"));
+          tryAgainButton.style.display = "inline-block";
+        }
+      }
+    }
+  });
+
+  function askNextNode() {
+    terminal.appendChild(document.createTextNode(`Enter data for node ${currentNode}: `));
+    input.value = "";
+    terminal.appendChild(input);
+    input.focus();
+  }
+</script>
+
+</body>
+</html>
