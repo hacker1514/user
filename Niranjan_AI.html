@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Niranjan GPT</title>
+  <style>
+    html, body {
+      margin: 0;
+      height: 100%;
+      overflow: hidden;
+      font-family: 'Segoe UI', sans-serif;
+      color: cyan;
+    }
+
+    body {
+      background: url("https://raw.githubusercontent.com/hacker1514/Photo/main/abstract-ai-circuit-board-background-600nw-2471339475.jpg") no-repeat center center fixed;
+      background-size: cover;
+    }
+
+    #welcome {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: black;
+      color: orange;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2.5em;
+      flex-direction: column;
+      z-index: 999;
+      text-align: center;
+    }
+
+    .header {
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      background: rgba(0, 0, 0, 0.8);
+      color: cyan;
+      padding: 15px;
+      text-align: center;
+      font-size: 1.7em;
+      z-index: 2;
+    }
+
+    .chat-overlay {
+      position: absolute;
+      top: 70px;
+      bottom: 70px;
+      left: 0;
+      right: 0;
+      padding: 20px;
+      overflow-y: auto;
+      z-index: 1;
+    }
+
+    .message {
+      margin: 10px 0;
+      max-width: 80%;
+      padding: 10px;
+      background: rgba(0, 0, 0, 0.4);
+      border-radius: 10px;
+      backdrop-filter: blur(3px);
+      animation: fadeIn 0.3s ease;
+      color: cyan;
+    }
+
+    .user {
+      align-self: flex-end;
+      margin-left: auto;
+      background-color: rgba(0, 100, 255, 0.4);
+    }
+
+    .bot {
+      align-self: flex-start;
+      margin-right: auto;
+      background-color: rgba(0, 255, 200, 0.3);
+    }
+
+    .input-area {
+      position: absolute;
+      bottom: 10px;
+      left: 10px;
+      right: 10px;
+      display: flex;
+      gap: 8px;
+      z-index: 2;
+    }
+
+    input[type="text"] {
+      flex: 1;
+      padding: 12px;
+      font-size: 1em;
+      border-radius: 8px;
+      border: none;
+      outline: none;
+      background: rgba(0,0,0,0.5);
+      color: cyan;
+    }
+
+    button {
+      background: rgba(0, 255, 200, 0.9);
+      border: none;
+      padding: 10px;
+      border-radius: 8px;
+      font-weight: bold;
+      cursor: pointer;
+      color: black;
+    }
+
+    button:hover {
+      background: rgba(0, 255, 200, 1);
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Welcome Screen -->
+  <div id="welcome">
+    <div>WELCOME TO NIRANJAN</div>
+    <div>CREATIONS</div>
+  </div>
+
+  <!-- Audio Elements -->
+  <audio id="click-sound" src="https://github.com/Niranjan164/COMPILER/raw/main/click-151673_073339.mp3"></audio>
+  <audio id="bg-music" src="https://raw.githubusercontent.com/hacker1514/Store/main/back_110812.mp3" autoplay loop></audio>
+
+  <!-- App Header -->
+  <div class="header" id="header-title">
+    NIRANJAN GPT
+    <button onclick="toggleMusic()" style="float:right;">🎵</button>
+  </div>
+
+  <!-- Chat Messages -->
+  <div class="chat-overlay" id="chat-box"></div>
+
+  <!-- Input Area -->
+  <div class="input-area">
+    <input type="text" id="user-input" placeholder="Ask something..." />
+    <button onclick="playClick();sendMessage()">Send</button>
+  </div>
+
+  <script>
+    const apiKey = "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";
+    const chatBox = document.getElementById("chat-box");
+    const input = document.getElementById("user-input");
+    const clickSound = document.getElementById("click-sound");
+    const bgMusic = document.getElementById("bg-music");
+
+    function playClick() {
+      clickSound.currentTime = 0;
+      clickSound.play();
+    }
+
+    function toggleMusic() {
+      playClick();
+      bgMusic.paused ? bgMusic.play() : bgMusic.pause();
+    }
+
+    function sendMessage() {
+      const userMessage = input.value.trim();
+      if (!userMessage) return;
+
+      appendMessage("You", userMessage, "user");
+      input.value = "";
+
+      const botDiv = appendMessage("Niranjan AI", "Typing...", "bot");
+
+      fetch("https://api.groq.com/openai/v1/chat/completions", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          "Authorization": `Bearer ${apiKey}`
+        },
+        body: JSON.stringify({
+          model: "llama3-8b-8192",
+          messages: [{ role: "user", content: userMessage }],
+          temperature: 0.7
+        })
+      }).then(res => res.json())
+        .then(data => {
+          const reply = data.choices?.[0]?.message?.content || "No response";
+          botDiv.innerHTML = `<strong>Niranjan AI:</strong><br>${reply}`;
+          chatBox.scrollTop = chatBox.scrollHeight;
+        });
+    }
+
+    function appendMessage(sender, text, type) {
+      const div = document.createElement("div");
+      div.className = `message ${type}`;
+      div.innerHTML = `<strong>${sender}:</strong><br>${text}`;
+      chatBox.appendChild(div);
+      chatBox.scrollTop = chatBox.scrollHeight;
+      return div;
+    }
+
+    input.addEventListener("keydown", function (e) {
+      if (e.key === "Enter") {
+        playClick();
+        sendMessage();
+      }
+    });
+
+    // Welcome screen logic
+    setTimeout(() => {
+      document.getElementById("welcome").style.display = "none";
+      document.getElementById("header-title").innerHTML = 'NIRANJAN AI <button onclick="toggleMusic()" style="float:right;">🎵</button>';
+    }, 3000);
+  </script>
+</body>
+</html>
