@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Niranjan GPT</title>
   <style>
     html, body {
@@ -43,6 +44,24 @@
       z-index: 2;
     }
 
+    .header button#report-btn {
+      position: absolute;
+      left: 10px;
+      top: 10px;
+      padding: 5px 10px;
+      font-size: 0.8em;
+      background: rgba(0, 255, 200, 0.9);
+      border: none;
+      border-radius: 8px;
+      color: black;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .header button.music-btn {
+      float: right;
+    }
+
     .chat-overlay {
       position: absolute;
       top: 70px;
@@ -57,7 +76,8 @@
     .message {
       margin: 10px 0;
       max-width: 80%;
-      padding: 10px;
+      padding: 15px;
+      font-size: 1.1em;
       background: rgba(0, 0, 0, 0.4);
       border-radius: 10px;
       backdrop-filter: blur(3px);
@@ -89,9 +109,9 @@
 
     input[type="text"] {
       flex: 1;
-      padding: 12px;
-      font-size: 1em;
-      border-radius: 8px;
+      padding: 18px;
+      font-size: 1.3em;
+      border-radius: 10px;
       border: none;
       outline: none;
       background: rgba(0,0,0,0.5);
@@ -101,9 +121,10 @@
     button {
       background: rgba(0, 255, 200, 0.9);
       border: none;
-      padding: 10px;
-      border-radius: 8px;
+      padding: 14px 18px;
       font-weight: bold;
+      font-size: 1em;
+      border-radius: 10px;
       cursor: pointer;
       color: black;
     }
@@ -116,6 +137,37 @@
       from { opacity: 0; transform: translateY(10px); }
       to { opacity: 1; transform: translateY(0); }
     }
+
+    /* REPORT MODAL */
+    #report-modal {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: rgba(0,0,0,0.9);
+      z-index: 1000;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      color: white;
+      text-align: center;
+      padding: 20px;
+    }
+
+    #report-modal input, #report-modal textarea {
+      width: 90%;
+      max-width: 400px;
+      margin: 10px 0;
+      padding: 12px;
+      font-size: 1em;
+      border-radius: 8px;
+      border: none;
+      outline: none;
+    }
+
+    #report-modal button {
+      margin-top: 10px;
+    }
   </style>
 </head>
 <body>
@@ -126,14 +178,24 @@
     <div>CREATIONS</div>
   </div>
 
-  <!-- Audio Elements -->
+  <!-- REPORT MODAL -->
+  <div id="report-modal">
+    <h2>REPORT</h2>
+    <input type="email" id="report-email" placeholder="Your Email" />
+    <textarea rows="4" id="report-text" placeholder="Describe the issue..."></textarea>
+    <button onclick="sendReport()">Send</button>
+    <button onclick="document.getElementById('report-modal').style.display='none'">Cancel</button>
+  </div>
+
+  <!-- Audio -->
   <audio id="click-sound" src="https://github.com/Niranjan164/COMPILER/raw/main/click-151673_073339.mp3"></audio>
   <audio id="bg-music" src="https://raw.githubusercontent.com/hacker1514/Store/main/back_110812.mp3" autoplay loop></audio>
 
-  <!-- App Header -->
+  <!-- Header -->
   <div class="header" id="header-title">
+    <button id="report-btn" onclick="playClick();showReport()">REPORT</button>
     NIRANJAN GPT
-    <button onclick="toggleMusic()" style="float:right;">🎵</button>
+    <button onclick="toggleMusic()" class="music-btn">🎵</button>
   </div>
 
   <!-- Chat Messages -->
@@ -206,11 +268,31 @@
       }
     });
 
-    // Welcome screen logic
+    // Welcome screen
     setTimeout(() => {
       document.getElementById("welcome").style.display = "none";
-      document.getElementById("header-title").innerHTML = 'NIRANJAN AI <button onclick="toggleMusic()" style="float:right;">🎵</button>';
+      document.getElementById("header-title").innerHTML =
+        `<button id="report-btn" onclick="playClick();showReport()">REPORT</button>
+         NIRANJAN AI
+         <button onclick="toggleMusic()" class="music-btn">🎵</button>`;
     }, 3000);
+
+    // Report
+    function showReport() {
+      document.getElementById("report-modal").style.display = "flex";
+    }
+
+    function sendReport() {
+      const email = document.getElementById("report-email").value.trim();
+      const desc = document.getElementById("report-text").value.trim();
+      if (!email || !desc) return alert("Please fill both fields!");
+
+      const subject = encodeURIComponent("Report From Niranjan AI");
+      const body = encodeURIComponent(`Email: ${email}\n\nMessage:\n${desc}`);
+      const mailto = `mailto:hackerenvironment1514@gmail.com?subject=${subject}&body=${body}`;
+
+      window.location.href = mailto;
+    }
   </script>
 </body>
 </html>
