@@ -1,0 +1,59 @@
+set serveroutput on;
+create table bank(account_no varchar(10),accountant varchar(50),money Number);
+insert into bank values ('kni101','Niranjan',200.101);
+insert into bank values ('kni102','Ravi',100);
+create or replace function send(money in Number) 
+return varchar2
+is
+Niranjan_balance Number;
+Ravi_balance Number;
+begin
+select money into Niranjan_balance from bank where account_no='kni101';
+select money into Ravi_balance from bank where account_no='kni102';
+savepoint donot;
+Niranjan_balance := Niranjan_balance - money;
+Ravi_balance := Ravi_balance + money;
+update bank set money = Niranjan_balance where account_no='kni101';
+update bank set money = Ravi_balance where account_no='kni102';
+if Niranjan_balance < 0 then 
+rollback to donot;
+return 'Transaction Failed !';
+else
+commit;
+return 'Transaction Success !';
+end if;
+end;
+/
+create or replace function recieve(money in Number) 
+return varchar2
+is
+Niranjan_balance Number;
+Ravi_balance Number;
+begin
+select money into Niranjan_balance from bank where account_no='kni101';
+select money into Ravi_balance from bank where account_no='kni102';
+savepoint donot;
+Niranjan_balance := Niranjan_balance + money;
+Ravi_balance := Ravi_balance - money;
+update bank set money = Niranjan_balance where account_no='kni101';
+update bank set money = Ravi_balance where account_no='kni102';
+if Ravi_balance < 0 then 
+rollback to donot;
+return 'Transaction Failed !';
+else
+commit;
+return 'Transaction Success !';
+end if;
+end;
+/
+select *from bank;
+begin
+dbms_output.put_line(send(10));
+end;
+/
+select *from bank;
+begin
+dbms_output.put_line(recieve(30));
+end;
+/
+select *from bank;
