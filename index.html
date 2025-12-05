@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<link rel="manifest" href="l.json">
+		<link rel="icon" href="https://hacker1514.github.io/python/kni.png" type="image/png" >
+		<title>𝙋𝙔𝙏𝙃𝙊𝙉 𝙁𝙐𝙇𝙇 𝘾𝙊𝙐𝙍𝙎𝙀</title>
+	</head>
+	<body onload="i()">
+		<center>
+			<h1 style="color:#a020f0;">💐 𝚆𝙴𝙻𝙲𝙾𝙼𝙴 𝚃𝙾 𝙿𝚈𝚃𝙷𝙾𝙽 𝙵𝚄𝙻𝙻 𝙲𝙾𝚄𝚁𝚂𝙴 ! 💐</h1>
+			<span style="color:blue;font-size:30px;">👤 𝚄𝚂𝙴𝚁𝙽𝙰𝙼𝙴&nbsp;&nbsp;:&nbsp;&nbsp; </span>
+			<input type="text" id="eu" style="font-size:25px;background-color:#ffffff;border:none;outline:none;color:#ff1493;" placeholder="✍️ 𝙴𝙽𝚃𝙴𝚁 𝙷𝙴𝚁𝙴 !"></input>
+			</br>
+			<span style="color:blue;font-size:30px;">🗝️ 𝙿𝙰𝚂𝚂𝚆𝙾𝚁𝙳&nbsp;&nbsp;:&nbsp;&nbsp; </span>
+			<input type="text" id="ep" style="font-size:25px;background-color:#ffffff;border:none;outline:none;color:#ff1493;" placeholder="✍️  𝙴𝙽𝚃𝙴𝚁 𝙷𝙴𝚁𝙴 !"></input>
+			</br>
+			</br></br></br>
+			<button style="color:red;border:solid green;font-size:25px;background-color:white;width:300px;" onclick="f()">👉 𝙻𝙾𝙶𝙸𝙽 👈</button>
+			</br></br>
+			<span style="color:blue;font-size:30px;">𝙸 𝙳𝙾𝙽'𝚃 𝙷𝙰𝚅𝙴 𝙰𝙲𝙲𝙾𝚄𝙽𝚃 👤</span></br></br>
+			<button onclick="h()" style="color:#4b0082;background-color:white;font-size:25px;border:2px solid green;width:300px;">👉 𝙲𝚁𝙴𝙰𝚃𝙴 𝙽𝙾𝚆 ! 👈</button>
+			</br></br></br>
+			<div style="color:#ff1493;font-size:35px;" id="o"></div>
+		</center>
+		<script>
+			let p;
+			window.addEventListener('beforeinstallprompt',e=>{
+				e.preventDefault();
+				p=e;
+			});
+			function install(){
+				localStorage.setItem('i',1);
+				if(p){
+					p.prompt();
+				}
+			}
+			if('serviceWorker' in navigator){
+				navigator.serviceWorker.register('l.js');
+			}
+			function i(){
+				let o=document.getElementById("o");
+				let c=localStorage.getItem('i');
+				if(c==null){
+				o.innerHTML="<button onclick='install()' style='color:violet;background-color:white;border:2px solid green;font-size:25px;width:300px;'>⬇️ 𝙸𝙽𝚂𝚃𝙰𝙻𝙻 </button>";
+			}
+			}
+			function g(t){
+				let s=new SpeechSynthesisUtterance(t);
+				window.speechSynthesis.speak(s);
+			}
+			function h(){
+				let p=localStorage.getItem("p");
+				let u=localStorage.getItem("u");
+				if(u==null && p==null){
+				let ep=document.getElementById("ep").value;
+				let eu=document.getElementById("eu").value;
+				localStorage.setItem("u",eu);
+				localStorage.setItem("p",ep);
+				let o=document.getElementById("o");
+				o.innerText="𝚂𝚄𝙲𝙲𝙴𝚂𝚂𝙵𝚄𝙻𝙻𝚈 𝙲𝚁𝙴𝙰𝚃𝙴𝙳 𝙰𝙲𝙲𝙾𝚄𝙽𝚃 👤 ! \n𝙽𝙾𝚆 𝙻𝙾𝙶𝙸𝙽 ☝️";
+				g('Succesfully created account . now you can login and enjoy session .');
+				}else{
+					let o=document.getElementById("o");
+					o.innerText="𝙰𝙲𝙲𝙾𝚄𝙽𝚃 𝙰𝙻𝚁𝙴𝙰𝙳𝚈 𝙲𝚁𝙴𝙰𝚃𝙴𝙳 👤 ! \n𝙿𝙻𝙴𝙰𝚂𝙴 𝙻𝙾𝙶𝙸𝙽 𝙸𝙽𝚃𝙾 𝙸𝚃 ☝️";
+					g('already account created . please login into it. only one account for each device.');
+				}
+			}
+			function f(){
+				let u=localStorage.getItem("u");
+				let p=localStorage.getItem("p");
+				let eu=document.getElementById("eu").value;
+				let ep=document.getElementById("ep").value;
+				if(u==eu && p==ep ){
+					window.open("main.html","_self");
+				}else{
+					let o=document.getElementById("o");
+					g('no account found ');
+					g('Please create account first');
+					o.innerText="⚔️ 𝙽𝙾 𝙰𝙲𝙲𝙾𝚄𝙽𝚃 𝙵𝙾𝚄𝙽𝙳 ! ⚔️";
+				}
+			}
+		</script>
+	</body>
+</html>
