@@ -1,12 +1,10 @@
 {
     "name": "PYTHON FULL COURSE",
-    "short_name": "PYTHON_FULL_COURSE",
-    "display": "standalone",
-    "orientation": "portrait",
+    "short_name": "PYTHON FULL COURSE",
+    "display": "fullscreen",
     "start_url": "./index.html",
     "background_color": "#ffffff",
     "theme_color": "#ffffff",
-    "prefer_related_applications": false,
     "icons": [
         {
             "src": "l.png",
