@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html>
+        <head>
+                <meta charset="UTF-8">
+                <link rel="icon" href="logo.png">
+                <title>≡¥Ö╜≡¥Ö╕≡¥Üü≡¥Ö░≡¥Ö╜≡¥Ö╣≡¥Ö░≡¥Ö╜ ≡¥Ö▓≡¥Üü≡¥Ö┤≡¥Ö░≡¥Üâ≡¥Ö╕≡¥Ö╛≡¥Ö╜≡¥Üé</title>
+        </head>
+        <style>
+                body{
+                        margin:0px;
+                        background-color:black;
+                     }
+                .heading{
+                        background-color:maroon;
+                        display:flex;
+                        align-items:center;
+                        color:yellow;
+                        }
+                .frame{
+                        text-align:center;
+                        }
+                .btn{
+                        background-color:cyan;
+                        margin:0px;
+                        color:cyan;
+                        font-size:50px;
+                        border:none;
+                     }
+                td{
+                        background-color:cyan;
+                        margin:0px;
+                        color:cyan;
+                        font-size:50px;
+                        padding:20px;
+                        padding-top:0px;
+
+                     }
+                .btn1{
+                        text-align:center;
+                        background-color:cyan;
+                        margin:0px;
+                        font-size:50px;
+                        color:black;
+                     }
+                .btn2{
+                        text-align:center;
+                        background-color:cyan;
+                        margin:0px;
+                        font-size:50px;
+                        color:teal;
+                     }
+                .t{
+                        color:green;
+                        text-align:center;
+                   }
+                #statues{
+                        color:white;
+                        }
+        </style>
+        <body>
+                <div class="heading">
+                        <img src="logo.png" width=100px height=100px;>
+                        <h1>≡¥Ö╛≡¥Üü≡¥Ö╢≡¥Ö░≡¥Ö╜≡¥Ö╕≡¥Üé≡¥Ö░≡¥Üâ≡¥Ö╕≡¥Ö╛≡¥Ö╜</h1>
+                </div>
+        <h1 class="t">≡¥Üâ≡¥Ö╕≡¥Ö▓-≡¥Üâ≡¥Ö░≡¥Ö▓-≡¥Üâ≡¥Ö╛≡¥Ö┤</h1>
+        <center>
+        <table border=1>
+        <tr>
+                <td id="b1"><button class="btn" onclick="f('b1')">_</button></td>
+                <td id="b2"><button class="btn" onclick="f('b2')">_</button></td>
+                <td id="b3"><button class="btn" onclick="f('b3')">_</button></td>
+        </tr>
+        <tr>
+                <td id="b4"><button class="btn" onclick="f('b4')">_</button></td>
+                <td id="b5"><button class="btn" onclick="f('b5')">_</button></td>
+                <td id="b6"><button class="btn" onclick="f('b6')">_</button></td>
+        </tr>
+        <tr>
+                <td id="b7"><button class="btn" onclick="f('b7')">_</button></td>
+                <td id="b8"><button class="btn" onclick="f('b8')">_</button></td>
+                <td id="b9"><button class="btn" onclick="f('b9')">_</button></td>
+        </tr>
+        </table>
+        </center>
+                <script>
+                        let player1='<span class="btn1">X</span>';
+                        let player2='<span class="btn2">O</span>';
+                        function ch(){
+
+
+if(document.getElementById("b1").innerText=="X" && document.getElementById("b2").innerText=="X" && document.getElementById("b3").innerText=="X"){
+alert("≡¥Üê≡¥Ö╛≡¥Üä ≡¥Üå≡¥Ö╛≡¥Ö╜ ≡¥Üâ≡¥Ö╖≡¥Ö┤ ≡¥Ö╝≡¥Ö░≡¥Üâ≡¥Ö▓≡¥Ö╖ !");
+window.location.reload();
+}else if(document.getElementById("b4").innerText=="X" && document.getElementById("b5").innerText=="X" && document.getElementById("b6").innerText=="X"){
+alert("≡¥Üê≡¥Ö╛≡¥Üä ≡¥Üå≡¥Ö╛≡¥Ö╜ ≡¥Üâ≡¥Ö╖≡¥Ö┤ ≡¥Ö╝≡¥Ö░≡¥Üâ≡¥Ö▓≡¥Ö╖ !");
+window.location.reload();
+}else if(document.getElementById("b7").innerText=="X" && document.getElementById("b8").innerText=="X" && document.getElementById("b9").innerText=="X"){
+alert("≡¥Üê≡¥Ö╛≡¥Üä ≡¥Üå≡¥Ö╛≡¥Ö╜ ≡¥Üâ≡¥Ö╖≡¥Ö┤ ≡¥Ö╝≡¥Ö░≡¥Üâ≡¥Ö▓≡¥Ö╖ !");
+window.location.reload();
+}else if(document.getElementById("b1").innerText=="O" && document.getElementById("b2").innerText=="O" && document.getElementById("b3").innerText=="O"){
+alert("≡¥Ö░≡¥Ö╕ ≡¥Üå≡¥Ö╛≡¥Ö╜ ≡¥Üâ≡¥Ö╖≡¥Ö┤ ≡¥Ö╝≡¥Ö░≡¥Üâ≡¥Ö▓≡¥Ö╖ !");
+window.location.reload();
+}else if(document.getElementById("b4").innerText=="O" && document.getElementById("b5").innerText=="O" && document.getElementById("b6").innerText=="O"){
+alert("≡¥Ö░≡¥Ö╕ ≡¥Üå≡¥Ö╛≡¥Ö╜ ≡¥Üâ≡¥Ö╖≡¥Ö┤ ≡¥Ö╝≡¥Ö░≡¥Üâ≡¥Ö▓≡¥Ö╖ !");
+window.location.reload();
+}else if(document.getElementById("b7").innerText=="O" && document.getElementById("b8").innerText=="O" && document.getElementById("b9").innerText=="O"){
+alert("≡¥Ö░≡¥Ö╕ ≡¥Üå≡¥Ö╛≡¥Ö╜ ≡¥Üâ≡¥Ö╖≡¥Ö┤ ≡¥Ö╝≡¥Ö░≡¥Üâ≡¥Ö▓≡¥Ö╖ !");
+window.location.reload();
+}else if(document.getElementById("b1").innerText=="X" && document.getElementById("b4").innerText=="X" && document.getElementById("b7").innerText=="X"){
+alert("≡¥Üê≡¥Ö╛≡¥Üä ≡¥Üå≡¥Ö╛≡¥Ö╜ ≡¥Üâ≡¥Ö╖≡¥Ö┤ ≡¥Ö╝≡¥Ö░≡¥Üâ≡¥Ö▓≡¥Ö╖ !");
+window.location.reload();
+}else if(document.getElementById("b2").innerText=="X" && document.getElementById("b5").innerText=="X" && document.getElementById("b8").innerText=="X"){
+alert("≡¥Üê≡¥Ö╛≡¥Üä ≡¥Üå≡¥Ö╛≡¥Ö╜ ≡¥Üâ≡¥Ö╖≡¥Ö┤ ≡¥Ö╝≡¥Ö░≡¥Üâ≡¥Ö▓≡¥Ö╖ !");
+window.location.reload();
+}else if(document.getElementById("b3").innerText=="X" && document.getElementById("b6").innerText=="X" && document.getElementById("b9").innerText=="X"){
+alert("≡¥Üê≡¥Ö╛≡¥Üä ≡¥Üå≡¥Ö╛≡¥Ö╜ ≡¥Üâ≡¥Ö╖≡¥Ö┤ ≡¥Ö╝≡¥Ö░≡¥Üâ≡¥Ö▓≡¥Ö╖ !");
+window.location.reload();
+}else if(document.getElementById("b1").innerText=="O" && document.getElementById("b4").innerText=="O" && document.getElementById("b7").innerText=="O"){
+alert("≡¥Ö░≡¥Ö╕ ≡¥Üå≡¥Ö╛≡¥Ö╜ ≡¥Üâ≡¥Ö╖≡¥Ö┤ ≡¥Ö╝≡¥Ö░≡¥Üâ≡¥Ö▓≡¥Ö╖ !");
+window.location.reload();
+}else if(document.getElementById("b2").innerText=="O" && document.getElementById("b5").innerText=="O" && document.getElementById("b8").innerText=="O"){
+alert("≡¥Ö░≡¥Ö╕ ≡¥Üå≡¥Ö╛≡¥Ö╜ ≡¥Üâ≡¥Ö╖≡¥Ö┤ ≡¥Ö╝≡¥Ö░≡¥Üâ≡¥Ö▓≡¥Ö╖ !");
+window.location.reload();
+}else if(document.getElementById("b3").innerText=="O" && document.getElementById("b6").innerText=="O" && document.getElementById("b9").innerText=="O"){
+alert("≡¥Ö░≡¥Ö╕ ≡¥Üå≡¥Ö╛≡¥Ö╜ ≡¥Üâ≡¥Ö╖≡¥Ö┤ ≡¥Ö╝≡¥Ö░≡¥Üâ≡¥Ö▓≡¥Ö╖ !");
+window.location.reload();
+}else if(document.getElementById("b1").innerText=="O" && document.getElementById("b5").innerText=="O" && document.getElementById("b9").innerText=="O"){
+alert("≡¥Ö░≡¥Ö╕ ≡¥Üå≡¥Ö╛≡¥Ö╜ ≡¥Üâ≡¥Ö╖≡¥Ö┤ ≡¥Ö╝≡¥Ö░≡¥Üâ≡¥Ö▓≡¥Ö╖ !");
+window.location.reload();
+}else if(document.getElementById("b3").innerText=="O" && document.getElementById("b5").innerText=="O" && document.getElementById("b7").innerText=="O"){
+alert("≡¥Ö░≡¥Ö╕ ≡¥Üå≡¥Ö╛≡¥Ö╜ ≡¥Üâ≡¥Ö╖≡¥Ö┤ ≡¥Ö╝≡¥Ö░≡¥Üâ≡¥Ö▓≡¥Ö╖ !");
+window.location.reload();
+}else if(document.getElementById("b1").innerText=="X" && document.getElementById("b5").innerText=="X" && document.getElementById("b9").innerText=="X"){
+alert("≡¥Üê≡¥Ö╛≡¥Üä ≡¥Üå≡¥Ö╛≡¥Ö╜ ≡¥Üâ≡¥Ö╖≡¥Ö┤ ≡¥Ö╝≡¥Ö░≡¥Üâ≡¥Ö▓≡¥Ö╖ !");
+window.location.reload();
+}else if(document.getElementById("b3").innerText=="X" && document.getElementById("b5").innerText=="X" && document.getElementById("b7").innerText=="X"){
+alert("≡¥Üê≡¥Ö╛≡¥Üä ≡¥Üå≡¥Ö╛≡¥Ö╜ ≡¥Üâ≡¥Ö╖≡¥Ö┤ ≡¥Ö╝≡¥Ö░≡¥Üâ≡¥Ö▓≡¥Ö╖ !");
+window.location.reload();
+}else if(
+    document.getElementById("b1").innerText !== "_" &&
+    document.getElementById("b2").innerText !== "_" &&
+    document.getElementById("b3").innerText !== "_" &&
+    document.getElementById("b4").innerText !== "_" &&
+    document.getElementById("b5").innerText !== "_" &&
+    document.getElementById("b6").innerText !== "_" &&
+    document.getElementById("b7").innerText !== "_" &&
+    document.getElementById("b8").innerText !== "_" &&
+    document.getElementById("b9").innerText !== "_"
+){
+    alert("≡¥Ö╝≡¥Üè≡¥Ü¥≡¥Üî≡¥Üæ ≡¥Ö│≡¥Ü¢≡¥Üè≡¥Üá !");
+    window.location.reload();
+}
+}
+
+
+                        function f(t){
+                                let data=document.getElementById(t).innerText;
+                                if(data==="_"){
+                                        document.getElementById(t).innerHTML=player1;
+                                        ch();
+                                        ai();
+                                        }
+                                }
+function ai(){
+
+    let winPatterns = [
+        ["b1","b2","b3"],
+        ["b4","b5","b6"],
+        ["b7","b8","b9"],
+        ["b1","b4","b7"],
+        ["b2","b5","b8"],
+        ["b3","b6","b9"],
+        ["b1","b5","b9"],
+        ["b3","b5","b7"]
+    ];
+
+    for(let p of winPatterns){
+        let [a,b,c] = p;
+
+        if(get(a)=="O" && get(b)=="O" && get(c)=="_") return play(c);
+        if(get(a)=="O" && get(c)=="O" && get(b)=="_") return play(b);
+        if(get(b)=="O" && get(c)=="O" && get(a)=="_") return play(a);
+    }
+
+    for(let p of winPatterns){
+        let [a,b,c] = p;
+
+        if(get(a)=="X" && get(b)=="X" && get(c)=="_") return play(c);
+        if(get(a)=="X" && get(c)=="X" && get(b)=="_") return play(b);
+        if(get(b)=="X" && get(c)=="X" && get(a)=="_") return play(a);
+    }
+
+
+    if(get("b5")=="_") return play("b5");
+
+
+    let corners = ["b1","b3","b7","b9"];
+
+    for(let c of corners){
+        if(get(c)=="_") return play(c);
+    }
+    for(let i=1;i<=9;i++){
+        if(get("b"+i)=="_") return play("b"+i);
+    }
+}
+
+function get(id){
+    return document.getElementById(id).innerText;
+}
+
+function play(id){
+    document.getElementById(id).innerHTML = player2;
+    ch();
+}
+
+
+
+
+                </script>
+        </body>
+</html>
