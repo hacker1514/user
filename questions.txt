@@ -1,8 +1,25 @@
-start_hour = 18
-start_minute = 58
-duration_minutes = 60
+start_hour = 19
+start_minute = 15
+duration_minutes = 3
 
 questions = [
-    {"q": "What is 2 + 2?", "options": ["2","3","4","5"], "answer": 2},
-    {"q": "Capital of India?", "options": ["Delhi","Mumbai","Chennai","Kolkata"], "answer": 0}
+    {"q": "What does NCC stand for?", "options": ["National Cadet Corps","National Control Corps","Naval Cadet Corps","National Civil Corps"], "answer": 0},
+
+    {"q": "Which wing of NCC is related to flying activities?", "options": ["Army Wing","Naval Wing","Air Wing","Technical Wing"], "answer": 2},
+
+    {"q": "What is the full form of IAF?", "options": ["Indian Air Force","International Air Force","Indian Armed Force","Internal Air Force"], "answer": 0},
+
+    {"q": "Which aircraft is commonly used for NCC Air Wing training?", "options": ["Sukhoi Su-30","Microlight Aircraft","Boeing 747","Helicopter Apache"], "answer": 1},
+
+    {"q": "What is the term for the force that opposes motion of an aircraft through air?", "options": ["Lift","Thrust","Drag","Gravity"], "answer": 2},
+
+    {"q": "Which part of the aircraft generates lift?", "options": ["Engine","Wing","Tail","Cockpit"], "answer": 1},
+
+    {"q": "What is the standard unit of altitude in aviation?", "options": ["Meters","Kilometers","Feet","Miles"], "answer": 2},
+
+    {"q": "Which instrument is used to measure altitude in an aircraft?", "options": ["Altimeter","Speedometer","Compass","Barometer"], "answer": 0},
+
+    {"q": "What is the color of runway edge lights?", "options": ["Red","Blue","White","Green"], "answer": 2},
+
+    {"q": "What does ATC stand for in aviation?", "options": ["Air Traffic Control","Airline Traffic Command","Aircraft Technical Control","Aviation Transport Control"], "answer": 0}
 ]
