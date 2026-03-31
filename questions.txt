@@ -1,0 +1,8 @@
+start_hour = 18
+start_minute = 58
+duration_minutes = 60
+
+questions = [
+    {"q": "What is 2 + 2?", "options": ["2","3","4","5"], "answer": 2},
+    {"q": "Capital of India?", "options": ["Delhi","Mumbai","Chennai","Kolkata"], "answer": 0}
+]
