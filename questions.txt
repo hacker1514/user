@@ -1,6 +1,6 @@
 start_hour = 19
-start_minute = 15
-duration_minutes = 3
+start_minute = 30
+duration_minutes = 60
 
 questions = [
     {"q": "What does NCC stand for?", "options": ["National Cadet Corps","National Control Corps","Naval Cadet Corps","National Civil Corps"], "answer": 0},
