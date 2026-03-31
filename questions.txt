@@ -1,5 +1,5 @@
 start_hour = 20
-start_minute = 30
+start_minute = 40
 duration_minutes = 60
 
 questions = [
